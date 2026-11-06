@@ -45,11 +45,13 @@ function handleSearch(event) {
 
       createGallery(data.hits);
     })
-    .catch(() => {
+    .catch(error => {
       iziToast.error({
         message: 'Something went wrong. Please try again!',
         position: 'topRight',
       });
+
+      console.error(error);
     })
     .finally(() => {
       hideLoader();
